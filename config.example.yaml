@@ -1,0 +1,15 @@
+provider: ollama
+
+openai:
+  api_key: ""
+  model: gpt-4o-mini
+  base_url: https://api.openai.com/v1
+
+ollama:
+  host: http://localhost:11434
+  model: llama3.2
+
+options:
+  max_length: 72
+  include_body: true
+  language: en
