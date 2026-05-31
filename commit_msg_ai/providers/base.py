@@ -1,5 +1,8 @@
+"""Provider interface."""
 from __future__ import annotations
+
 from abc import ABC, abstractmethod
+
 
 SYSTEM_PROMPT = """You are an expert at writing concise, accurate Git commit messages.
 
@@ -17,13 +20,16 @@ Rules:
 - if include_body is false, output ONLY the subject line
 - output language: {language}
 - never include the diff or markdown code fences
-- never wrap in quotes
-- output ONLY the commit message
+- never wrap in quotes or backticks
+- never add commentary, explanations, or notes before/after the message
+- output ONLY the commit message — nothing else
 """
 
+
 def build_user_prompt(diff, scope_hint=""):
-    extra = f"\n\nScope hint: {scope_hint}" if scope_hint else ""
+    extra = f"\n\nSuggested scope hint: {scope_hint}" if scope_hint else ""
     return f"Here is the staged diff:\n\n```diff\n{diff}\n```{extra}"
+
 
 class Provider(ABC):
     @abstractmethod

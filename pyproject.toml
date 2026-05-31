@@ -4,12 +4,19 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "commit-msg-ai"
-version = "0.1.0"
-description = "AI-generated Conventional Commit messages"
+version = "0.2.0"
+description = "AI-generated Conventional Commit messages from your staged Git diff"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-dependencies = ["click>=8.1.0", "pyyaml>=6.0", "requests>=2.31.0", "openai>=1.30.0"]
+authors = [{ name = "Weretik18", email = "ruslanmakarov180909@gmail.com" }]
+dependencies = [
+    "click>=8.1.0",
+    "pyyaml>=6.0",
+    "requests>=2.31.0",
+    "openai>=1.30.0",
+    "questionary>=2.0.0",
+]
 
 [project.scripts]
 commit-msg-ai = "commit_msg_ai.cli:main"
