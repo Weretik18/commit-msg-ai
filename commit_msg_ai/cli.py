@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import sys
-from pathlib import Path
 
 import click
 
@@ -19,7 +18,6 @@ from .git_utils import (
     truncate_diff,
 )
 from .providers import get_provider
-
 
 HOOK_SCRIPT = """#!/usr/bin/env bash
 COMMIT_MSG_FILE=$1

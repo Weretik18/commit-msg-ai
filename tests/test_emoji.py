@@ -1,4 +1,4 @@
-from commit_msg_ai.emoji import prepend_emoji, EMOJI_MAP
+from commit_msg_ai.emoji import prepend_emoji
 
 
 def test_prepends_feat_emoji():

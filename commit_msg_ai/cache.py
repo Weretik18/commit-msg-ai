@@ -7,7 +7,6 @@ import time
 from pathlib import Path
 from typing import Optional
 
-
 CACHE_DIR = Path.home() / ".commit-msg-ai" / "cache"
 CACHE_TTL_SECONDS = 60 * 60 * 24 * 7  # 1 week
 

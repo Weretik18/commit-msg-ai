@@ -1,7 +1,7 @@
 """OpenAI provider."""
 from __future__ import annotations
 
-from .base import Provider, SYSTEM_PROMPT, build_user_prompt, resolve_language
+from .base import SYSTEM_PROMPT, Provider, build_user_prompt, resolve_language
 
 
 class OpenAIProvider(Provider):

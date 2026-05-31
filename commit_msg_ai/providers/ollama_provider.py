@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import requests
 
-from .base import Provider, SYSTEM_PROMPT, build_user_prompt, resolve_language
+from .base import SYSTEM_PROMPT, Provider, build_user_prompt, resolve_language
 
 
 class OllamaProvider(Provider):

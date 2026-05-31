@@ -3,7 +3,6 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-
 # Map common language codes/names to their full English name.
 # Models follow instructions much better when the language is named explicitly
 # in English rather than passed as a 2-letter code like "ru".

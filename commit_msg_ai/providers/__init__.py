@@ -1,6 +1,7 @@
 from .base import Provider
-from .openai_provider import OpenAIProvider
 from .ollama_provider import OllamaProvider
+from .openai_provider import OpenAIProvider
+
 
 def get_provider(name, config):
     name = name.lower()

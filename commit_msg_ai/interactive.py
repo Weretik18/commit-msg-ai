@@ -3,7 +3,6 @@ from __future__ import annotations
 
 from typing import Callable, List, Optional
 
-
 REGENERATE_LABEL = "🔄 Regenerate all"
 ABORT_LABEL = "❌ Abort"
 

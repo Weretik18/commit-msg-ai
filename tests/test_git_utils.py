@@ -1,6 +1,7 @@
-from unittest.mock import patch, MagicMock
-import pytest
-from commit_msg_ai.git_utils import GitError, get_staged_diff, get_staged_files, truncate_diff
+from unittest.mock import MagicMock, patch
+
+from commit_msg_ai.git_utils import get_staged_diff, get_staged_files, truncate_diff
+
 
 @patch("commit_msg_ai.git_utils.subprocess.run")
 def test_get_staged_diff_returns_output(mock_run):

@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import re
 
-
 # Standard gitmoji-style mapping
 EMOJI_MAP = {
     "feat":     "✨",
