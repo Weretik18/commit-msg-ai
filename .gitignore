@@ -1,14 +1,35 @@
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# Build artifacts
 build/
 dist/
 *.egg-info/
-venv/
-.venv/
+*.egg
+
+# Testing
 .pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
-.env
-config.yaml
-!config.example.yaml
+Thumbs.db
+
+# commit-msg-ai
+.commit-msg.txt
