@@ -1,6 +1,9 @@
 name: Publish to PyPI
 
 on:
+  push:
+    tags:
+      - 'v*'
   release:
     types: [published]
   workflow_dispatch:
@@ -11,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/commit-msg-ai
+      url: https://pypi.org/p/gitmsg-ai
     permissions:
       id-token: write  # required for trusted publishing (no API token needed)
 
