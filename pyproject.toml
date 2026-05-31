@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "commit-msg-ai"
+name = "gitmsg-ai"
 version = "0.2.2"
 description = "AI-generated Conventional Commit messages from your staged Git diff. Local (Ollama) or cloud (OpenAI)."
 readme = "README.md"
@@ -42,6 +42,7 @@ Repository = "https://github.com/Weretik18/commit-msg-ai"
 Issues = "https://github.com/Weretik18/commit-msg-ai/issues"
 
 [project.scripts]
+gitmsg-ai = "commit_msg_ai.cli:main"
 commit-msg-ai = "commit_msg_ai.cli:main"
 
 [project.optional-dependencies]
