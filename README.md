@@ -1,4 +1,4 @@
-﻿# gitmsg-ai
+# gitmsg-ai
 
 [![CI](https://github.com/Weretik18/commit-msg-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/Weretik18/commit-msg-ai/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/gitmsg-ai.svg)](https://pypi.org/project/gitmsg-ai/)
