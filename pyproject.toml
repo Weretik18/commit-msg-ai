@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gitmsg-ai"
-version = "0.2.4"
+version = "0.2.5"
 description = "AI-generated Conventional Commit messages from your staged Git diff. Local (Ollama) or cloud (OpenAI)."
 readme = "README.md"
 requires-python = ">=3.9"

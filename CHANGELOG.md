@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.5] - 2026-06-01
+
+### Fixed
+- Added trailing newline to `commit_msg_ai/__init__.py` (ruff W292) — CI lint now passes
+
 ## [0.2.4] - 2026-06-01
 
 ### Fixed
