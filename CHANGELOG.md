@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.4] - 2026-06-01
+
+### Fixed
+- `__version__` is now read dynamically from package metadata via `importlib.metadata`, so `gitmsg-ai --version` always matches the installed package version
+- Removed hardcoded version string in `commit_msg_ai/__init__.py` that was stuck at 0.2.2
+
 ## [0.2.3] - 2026-06-01
 
 ### Fixed
