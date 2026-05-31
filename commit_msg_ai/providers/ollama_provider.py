@@ -3,18 +3,19 @@ from __future__ import annotations
 
 import requests
 
-from .base import Provider, SYSTEM_PROMPT, build_user_prompt
+from .base import Provider, SYSTEM_PROMPT, build_user_prompt, resolve_language
 
 
 class OllamaProvider(Provider):
     def __init__(self, ollama_cfg, options):
         self.cfg = ollama_cfg
         self.options = options
+        self.language = resolve_language(options.language)
 
     def _build_system(self):
         system = SYSTEM_PROMPT.format(
             max_length=self.options.max_length,
-            language=self.options.language,
+            language=self.language,
         )
         if not self.options.include_body:
             system += "\n\nIMPORTANT: include_body is false — output ONLY the subject line."
@@ -28,7 +29,7 @@ class OllamaProvider(Provider):
             "options": {"temperature": temperature},
             "messages": [
                 {"role": "system", "content": self._build_system()},
-                {"role": "user", "content": build_user_prompt(diff, scope_hint)},
+                {"role": "user", "content": build_user_prompt(diff, scope_hint, self.language)},
             ],
         }
         try:
@@ -45,19 +46,9 @@ class OllamaProvider(Provider):
         return self._call(diff, scope_hint, temperature=0.3)
 
     def generate_many(self, diff, scope_hint="", n=3):
-        """Generate N variants via N calls with high temperature for diversity.
-
-        Ollama doesn't support n>1 natively, so we call sequentially.
-        """
+        """Generate N variants via N calls with high temperature for diversity."""
         results = []
         for _ in range(n):
             results.append(self._call(diff, scope_hint, temperature=0.8))
-        # de-dup while preserving order
-        seen = set()
-        unique = []
-        for r in results:
-            key = r.splitlines()[0] if r else ""
-            if key not in seen:
-                seen.add(key)
-                unique.append(r)
-        return unique if unique else results
+        # Keep all results — even similar ones — so interactive menu always has options
+        return results

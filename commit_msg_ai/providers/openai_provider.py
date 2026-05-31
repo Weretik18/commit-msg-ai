@@ -1,13 +1,14 @@
 """OpenAI provider."""
 from __future__ import annotations
 
-from .base import Provider, SYSTEM_PROMPT, build_user_prompt
+from .base import Provider, SYSTEM_PROMPT, build_user_prompt, resolve_language
 
 
 class OpenAIProvider(Provider):
     def __init__(self, openai_cfg, options):
         self.cfg = openai_cfg
         self.options = options
+        self.language = resolve_language(options.language)
 
         if not openai_cfg.api_key:
             raise RuntimeError(
@@ -20,7 +21,7 @@ class OpenAIProvider(Provider):
     def _build_system(self):
         system = SYSTEM_PROMPT.format(
             max_length=self.options.max_length,
-            language=self.options.language,
+            language=self.language,
         )
         if not self.options.include_body:
             system += "\n\nIMPORTANT: include_body is false — output ONLY the subject line."
@@ -31,7 +32,7 @@ class OpenAIProvider(Provider):
             model=self.cfg.model,
             messages=[
                 {"role": "system", "content": self._build_system()},
-                {"role": "user", "content": build_user_prompt(diff, scope_hint)},
+                {"role": "user", "content": build_user_prompt(diff, scope_hint, self.language)},
             ],
             temperature=0.3,
             max_tokens=300,
@@ -39,12 +40,11 @@ class OpenAIProvider(Provider):
         return response.choices[0].message.content.strip()
 
     def generate_many(self, diff, scope_hint="", n=3):
-        """Generate N variants in a single API call (cheaper than N calls)."""
         response = self.client.chat.completions.create(
             model=self.cfg.model,
             messages=[
                 {"role": "system", "content": self._build_system()},
-                {"role": "user", "content": build_user_prompt(diff, scope_hint)},
+                {"role": "user", "content": build_user_prompt(diff, scope_hint, self.language)},
             ],
             temperature=0.7,
             max_tokens=300,
