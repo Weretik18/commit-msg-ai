@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.6] - 2026-06-01
+
+### Fixed
+- Sorted imports in `commit_msg_ai/__init__.py` (ruff I001) — CI lint now passes
+
 ## [0.2.5] - 2026-06-01
 
 ### Fixed
