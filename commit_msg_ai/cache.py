@@ -5,7 +5,6 @@ import hashlib
 import json
 import time
 from pathlib import Path
-from typing import Optional
 
 CACHE_DIR = Path.home() / ".commit-msg-ai" / "cache"
 CACHE_TTL_SECONDS = 60 * 60 * 24 * 7  # 1 week
@@ -26,7 +25,7 @@ def _cache_path(key: str) -> Path:
     return CACHE_DIR / f"{key}.json"
 
 
-def get(diff: str, model: str, options_signature: str) -> Optional[str]:
+def get(diff: str, model: str, options_signature: str) -> str | None:
     """Return cached message or None if miss/expired."""
     key = _hash_diff(diff, model, options_signature)
     path = _cache_path(key)

@@ -1,19 +1,19 @@
 """Interactive selection of generated commit messages."""
 from __future__ import annotations
 
-from typing import Callable, List, Optional
+from typing import Callable
 
 REGENERATE_LABEL = "🔄 Regenerate all"
 ABORT_LABEL = "❌ Abort"
 
 
-def choose(candidates: List[str], regenerate_fn: Optional[Callable[[], List[str]]] = None) -> Optional[str]:
+def choose(candidates: list[str], regenerate_fn: Callable[[], list[str]] | None = None) -> str | None:
     """Show candidates and let user pick. Returns chosen message or None on abort.
 
     Uses `questionary` if available, falls back to simple numbered prompt.
     """
     try:
-        import questionary
+        import questionary  # noqa: F401
         return _questionary_choose(candidates, regenerate_fn)
     except ImportError:
         return _fallback_choose(candidates, regenerate_fn)

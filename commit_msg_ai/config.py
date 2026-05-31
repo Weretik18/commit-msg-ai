@@ -3,7 +3,6 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 import yaml
 
@@ -34,7 +33,7 @@ class Config:
     ollama: OllamaConfig = field(default_factory=OllamaConfig)
     options: Options = field(default_factory=Options)
 
-def load_config(path: Optional[Path] = None) -> Config:
+def load_config(path: Path | None = None) -> Config:
     path = path or CONFIG_PATH
     if not path.exists():
         return Config()
