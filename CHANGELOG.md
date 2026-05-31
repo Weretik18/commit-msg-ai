@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.3] - 2026-06-01
+
+### Fixed
+- README: corrected PyPI badges and install instructions to use `gitmsg-ai` package name
+- Cleaned up references mixing old (`commit-msg-ai`) and new (`gitmsg-ai`) package names
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),

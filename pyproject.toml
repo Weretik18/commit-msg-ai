@@ -1,10 +1,10 @@
-[build-system]
+﻿[build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "gitmsg-ai"
-version = "0.2.2"
+version = "0.2.3"
 description = "AI-generated Conventional Commit messages from your staged Git diff. Local (Ollama) or cloud (OpenAI)."
 readme = "README.md"
 requires-python = ">=3.9"
