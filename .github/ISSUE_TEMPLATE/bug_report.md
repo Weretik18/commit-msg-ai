@@ -1,4 +1,4 @@
-﻿---
+---
 name: Bug report
 about: Report a bug in gitmsg-ai
 title: "[BUG] "
