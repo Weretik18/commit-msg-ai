@@ -1,4 +1,5 @@
 """CLI."""
+
 from __future__ import annotations
 
 import sys
@@ -58,12 +59,16 @@ def _post_process(message, use_emoji):
 @click.option("--lang", "language", help="Output language (overrides config).")
 @click.option("--emoji/--no-emoji", default=None, help="Prepend gitmoji to commit type.")
 @click.option("--interactive", "-i", is_flag=True, help="Generate 3 options and let you pick.")
-@click.option("--amend", is_flag=True, help="Generate from last commit's diff (for git commit --amend).")
+@click.option(
+    "--amend", is_flag=True, help="Generate from last commit's diff (for git commit --amend)."
+)
 @click.option("--no-cache", is_flag=True, help="Skip cache (always call the model).")
 @click.option("--dry-run", is_flag=True, help="Print diff and exit.")
 @click.version_option(__version__, prog_name="commit-msg-ai")
 @click.pass_context
-def main(ctx, provider, model, no_body, scope, language, emoji, interactive, amend, no_cache, dry_run):
+def main(
+    ctx, provider, model, no_body, scope, language, emoji, interactive, amend, no_cache, dry_run
+):
     if ctx.invoked_subcommand is not None:
         return
 
@@ -119,6 +124,7 @@ def main(ctx, provider, model, no_body, scope, language, emoji, interactive, ame
         prov = get_provider(cfg.provider, cfg)
 
         if interactive:
+
             def _gen_many():
                 raw = prov.generate_many(diff, scope_hint=scope, n=3)
                 return [_post_process(m, use_emoji) for m in raw]

@@ -1,21 +1,22 @@
 """Gitmoji-style emoji mapping for Conventional Commits types."""
+
 from __future__ import annotations
 
 import re
 
 # Standard gitmoji-style mapping
 EMOJI_MAP = {
-    "feat":     "✨",
-    "fix":      "🐛",
-    "docs":     "📝",
-    "style":    "💄",
+    "feat": "✨",
+    "fix": "🐛",
+    "docs": "📝",
+    "style": "💄",
     "refactor": "♻️",
-    "perf":     "⚡️",
-    "test":     "✅",
-    "build":    "📦",
-    "ci":       "👷",
-    "chore":    "🔧",
-    "revert":   "⏪",
+    "perf": "⚡️",
+    "test": "✅",
+    "build": "📦",
+    "ci": "👷",
+    "chore": "🔧",
+    "revert": "⏪",
 }
 
 # Matches "type(scope): subject" or "type: subject" at start of line

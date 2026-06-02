@@ -1,4 +1,5 @@
 """Diff-based cache to avoid re-generating identical commits."""
+
 from __future__ import annotations
 
 import hashlib

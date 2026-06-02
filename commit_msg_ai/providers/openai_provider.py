@@ -1,4 +1,5 @@
 """OpenAI provider."""
+
 from __future__ import annotations
 
 from .base import SYSTEM_PROMPT, Provider, build_user_prompt, resolve_language
@@ -16,6 +17,7 @@ class OpenAIProvider(Provider):
             )
 
         from openai import OpenAI
+
         self.client = OpenAI(api_key=openai_cfg.api_key, base_url=openai_cfg.base_url)
 
     def _build_system(self):

@@ -8,16 +8,19 @@ import yaml
 
 CONFIG_PATH = Path.home() / ".commit-msg-ai" / "config.yaml"
 
+
 @dataclass
 class OpenAIConfig:
     api_key: str = ""
     model: str = "gpt-4o-mini"
     base_url: str = "https://api.openai.com/v1"
 
+
 @dataclass
 class OllamaConfig:
     host: str = "http://localhost:11434"
     model: str = "llama3.2"
+
 
 @dataclass
 class Options:
@@ -26,12 +29,14 @@ class Options:
     language: str = "en"
     scope_hints: str = ""
 
+
 @dataclass
 class Config:
     provider: str = "openai"
     openai: OpenAIConfig = field(default_factory=OpenAIConfig)
     ollama: OllamaConfig = field(default_factory=OllamaConfig)
     options: Options = field(default_factory=Options)
+
 
 def load_config(path: Path | None = None) -> Config:
     path = path or CONFIG_PATH

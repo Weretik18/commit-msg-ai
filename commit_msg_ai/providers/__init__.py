@@ -11,4 +11,5 @@ def get_provider(name, config):
         return OllamaProvider(config.ollama, config.options)
     raise ValueError(f"Unknown provider: {name!r}")
 
+
 __all__ = ["Provider", "OpenAIProvider", "OllamaProvider", "get_provider"]

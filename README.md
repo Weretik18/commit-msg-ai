@@ -91,12 +91,12 @@ To remove:
 
 gitmsg-ai uninstall-hook
 Commands
-Command	What it does
-gitmsg-ai	Generate a commit message
-gitmsg-ai install-hook	Install prepare-commit-msg hook
-gitmsg-ai uninstall-hook	Remove the hook
-gitmsg-ai clear-cache	Delete all cached messages
-gitmsg-ai --version	Show version
+CommandWhat it does
+gitmsg-aiGenerate a commit message
+gitmsg-ai install-hookInstall prepare-commit-msg hook
+gitmsg-ai uninstall-hookRemove the hook
+gitmsg-ai clear-cacheDelete all cached messages
+gitmsg-ai --versionShow version
 Config
 ~/.commit-msg-ai/config.yaml:
 
@@ -128,7 +128,9 @@ options:
   include_body: true
 
   language: en
-Development
+Contributing
+Pull requests are welcome. To set up your dev environment:
+
 undefined
 Clone and install in dev mode
 git clone https://github.com/Weretik18/commit-msg-ai.git
@@ -137,12 +139,29 @@ cd commit-msg-ai
 
 pip install -e ".[dev]"
 
+Install pre-commit hooks (runs ruff, format, encoding checks before each commit)
+pip install pre-commit
+
+pre-commit install
+
+Run all hooks against all files (sanity check)
+pre-commit run --all-files
+
 Run tests
 pytest tests/ -v
 
-Lint
+Lint manually
 ruff check commit_msg_ai/ tests/
 
+
+The `pre-commit` hooks run automatically on every `git commit` and check:
+- Code formatting (`ruff-format`)
+- Linting (`ruff`)
+- Trailing whitespace and missing newlines
+- TOML/YAML syntax
+- Line endings (forces LF)
+
+CI runs the same checks, so passing pre-commit locally means CI will pass too.
 
 ## License
 

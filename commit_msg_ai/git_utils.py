@@ -1,4 +1,5 @@
 """Git helpers."""
+
 from __future__ import annotations
 
 import subprocess
@@ -12,7 +13,11 @@ class GitError(RuntimeError):
 def _run(args, cwd=None):
     try:
         result = subprocess.run(
-            ["git", *args], cwd=cwd, capture_output=True, text=True, check=True,
+            ["git", *args],
+            cwd=cwd,
+            capture_output=True,
+            text=True,
+            check=True,
         )
     except FileNotFoundError as e:
         raise GitError("git executable not found on PATH") from e

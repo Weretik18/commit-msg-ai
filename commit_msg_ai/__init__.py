@@ -1,4 +1,5 @@
 """commit-msg-ai / gitmsg-ai - AI-powered git commit message generator."""
+
 from importlib.metadata import PackageNotFoundError, version
 
 try:

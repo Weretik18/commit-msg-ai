@@ -1,5 +1,22 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.2.7] - 2026-06-02
+
+### Added
+- `.pre-commit-config.yaml` with ruff, ruff-format, end-of-file-fixer, trailing-whitespace, check-toml, check-yaml, mixed-line-ending hooks
+- New `pre-commit` CI job that runs all hooks on every push and PR
+- "Contributing" section in README with dev setup and pre-commit instructions
+
+### Fixed
+- Code style and formatting across all source files (ruff-format pass)
+- Trailing newlines and mixed line endings in README.md, CHANGELOG.md, publish.yml
+- Garbled emoji encoding in README.md and CHANGELOG.md (UTF-8 written as cp1251)
+
 ## [0.2.6] - 2026-06-01
 
 ### Fixed
@@ -21,11 +38,6 @@
 ### Fixed
 - README: corrected PyPI badges and install instructions to use `gitmsg-ai` package name
 - Cleaned up references mixing old (`commit-msg-ai`) and new (`gitmsg-ai`) package names
-
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.2.2] - 2026-06-01
 
@@ -68,6 +80,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `install-hook` / `uninstall-hook` commands for Git integration
 - `--scope`, `--no-body`, `--dry-run`, `--provider`, `--model` flags
 
+[0.2.7]: https://github.com/Weretik18/commit-msg-ai/releases/tag/v0.2.7
+[0.2.6]: https://github.com/Weretik18/commit-msg-ai/releases/tag/v0.2.6
+[0.2.5]: https://github.com/Weretik18/commit-msg-ai/releases/tag/v0.2.5
+[0.2.4]: https://github.com/Weretik18/commit-msg-ai/releases/tag/v0.2.4
+[0.2.3]: https://github.com/Weretik18/commit-msg-ai/releases/tag/v0.2.3
 [0.2.2]: https://github.com/Weretik18/commit-msg-ai/releases/tag/v0.2.2
 [0.2.1]: https://github.com/Weretik18/commit-msg-ai/releases/tag/v0.2.1
 [0.2.0]: https://github.com/Weretik18/commit-msg-ai/releases/tag/v0.2.0

@@ -1,4 +1,5 @@
 """Provider interface."""
+
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
@@ -77,7 +78,11 @@ Do not write the subject or body in English unless {language} is English.
 
 def build_user_prompt(diff, scope_hint="", language="English"):
     extra = f"\n\nSuggested scope hint: {scope_hint}" if scope_hint else ""
-    lang_reminder = f"\n\nReminder: write the commit message in {language}." if language.lower() != "english" else ""
+    lang_reminder = (
+        f"\n\nReminder: write the commit message in {language}."
+        if language.lower() != "english"
+        else ""
+    )
     return f"Here is the staged diff:\n\n```diff\n{diff}\n```{extra}{lang_reminder}"
 
 
