@@ -1,9 +1,9 @@
-# gitmsg-ai
+﻿# gitmsg-ai
 
 [![CI](https://github.com/Weretik18/commit-msg-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/Weretik18/commit-msg-ai/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/gitmsg-ai.svg)](https://pypi.org/project/gitmsg-ai/)
 [![Python versions](https://img.shields.io/pypi/pyversions/gitmsg-ai.svg)](https://pypi.org/project/gitmsg-ai/)
-[![Downloads](https://img.shields.io/pypi/dm/gitmsg-ai.svg)](https://pypi.org/project/gitmsg-ai/)
+[![codecov](https://codecov.io/gh/Weretik18/commit-msg-ai/branch/main/graph/badge.svg)](https://codecov.io/gh/Weretik18/commit-msg-ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 AI-generated Conventional Commit messages from your staged Git diff.
